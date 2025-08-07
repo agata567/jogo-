@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.forca img {
+    width: 200px;
+    height: 200px;
+}
+
+.palavra-container {
+    margin: 20px 0;
+}
+
+#palavra {
+    font-size: 2em;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+.teclado {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.teclado button {
+    font-size: 1.2em;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #ccc;
+    border: none;
+    border-radius: 5px;
+}
+
+.teclado button:disabled {
+    cursor: not-allowed;
+    background-color: #aaa;
+}
+
+#mensagem {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.reiniciar-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
