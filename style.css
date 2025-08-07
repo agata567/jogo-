@@ -1,70 +1,106 @@
+/* Paleta de Cores:
+   - Azul Escuro: #1A237E
+   - Azul Claro/Roxo: #5E35B1
+   - Preto: #212121
+   - Branco: #E0E0E0
+*/
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #1A237E; /* Azul Escuro */
+    color: #E0E0E0; /* Branco */
     margin: 0;
 }
 
 .container {
     text-align: center;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #212121; /* Preto */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border: 2px solid #5E35B1; /* Roxo */
+}
+
+h1 {
+    color: #5E35B1; /* Roxo */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .forca img {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
+    border: 3px solid #5E35B1; /* Roxo */
+    border-radius: 10px;
+    background-color: #E0E0E0; /* Branco para o fundo da imagem */
 }
 
 .palavra-container {
-    margin: 20px 0;
+    margin: 25px 0;
 }
 
 #palavra {
-    font-size: 2em;
-    letter-spacing: 5px;
+    font-size: 2.5em;
+    letter-spacing: 8px;
     font-weight: bold;
+    color: #E0E0E0; /* Branco */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 .teclado {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-    margin-top: 20px;
+    gap: 8px;
+    margin-top: 30px;
 }
 
 .teclado button {
-    font-size: 1.2em;
-    padding: 10px;
+    font-size: 1.3em;
+    padding: 15px;
     cursor: pointer;
-    background-color: #ccc;
+    background-color: #5E35B1; /* Roxo */
+    color: #E0E0E0; /* Branco */
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.teclado button:hover:not(:disabled) {
+    background-color: #4527A0; /* Um tom mais escuro de roxo */
+    transform: translateY(-2px);
 }
 
 .teclado button:disabled {
     cursor: not-allowed;
-    background-color: #aaa;
+    background-color: #424242; /* Cinza escuro */
+    color: #9E9E9E; /* Cinza claro */
+}
+
+.mensagens {
+    margin-top: 20px;
 }
 
 #mensagem {
-    font-size: 1.2em;
+    font-size: 1.5em;
     font-weight: bold;
-    margin-top: 10px;
+    color: #E0E0E0; /* Branco */
 }
 
 .reiniciar-btn {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 1em;
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 1.1em;
     cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #5E35B1; /* Roxo */
+    color: #E0E0E0; /* Branco */
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.reiniciar-btn:hover {
+    background-color: #4527A0; /* Roxo mais escuro */
 }
