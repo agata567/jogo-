@@ -1,93 +1,36 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f0f4f8;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-.container {
+  background-color: #f0f0f0;
   text-align: center;
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  width: 90%;
+  margin-top: 50px;
 }
 
-h1 {
-  color: #333;
-  margin-bottom: 20px;
+.container, .game-container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  display: inline-block;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-img {
-  width: 200px;
-  margin-bottom: 20px;
-}
-
-.palavra {
-  font-size: 2rem;
-  letter-spacing: 10px;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-
-.teclado {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-
-.teclado button {
-  padding: 10px 14px;
+button {
+  padding: 10px 20px;
   font-size: 16px;
-  background-color: #0077cc;
+  background-color: #0078D7;
   color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
-.teclado button:hover:not(:disabled) {
+button:hover {
   background-color: #005fa3;
 }
 
-.teclado button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-.mensagem {
-  font-size: 1.2rem;
-  color: #444;
-  margin-top: 10px;
-}
-
-.letras-erradas {
-  color: #d9534f;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.botao-reiniciar {
-  padding: 12px 20px;
+input {
+  padding: 10px;
   font-size: 16px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  display: none;
-  margin-top: 20px;
-}
-
-.botao-reiniciar:hover {
-  background-color: #218838;
+  width: 50px;
+  text-align: center;
 }

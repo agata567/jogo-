@@ -1,37 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Jogo da Forca</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>🎯 Jogo da Forca</h1>
-
-    <label for="nivel">Dificuldade:</label>
-    <select id="nivel">
-      <option value="facil">Fácil</option>
-      <option value="medio">Médio</option>
-      <option value="dificil">Difícil</option>
-    </select>
-
-    <p id="jogador-atual">Jogador: 1</p>
-    <p id="pontuacao">Pontuação: 0</p>
-
-    <img id="forca-img" src="img/forca-0.png" alt="Imagem da forca" />
-
-    <div id="palavra" class="palavra"></div>
-
-    <div id="teclado" class="teclado"></div>
-
-    <p id="mensagem" class="mensagem"></p>
-    <p id="letras-erradas" class="letras-erradas"></p>
-
-    <button id="reiniciar-btn" class="botao-reiniciar">Jogar Novamente</button>
+    <h1>🎮 Bem-vindo ao Jogo da Forca!</h1>
+    <p>Escolha uma dificuldade e comece a jogar!</p>
+    <button onclick="window.location.href='jogo.html'">Iniciar Jogo</button>
   </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
+
