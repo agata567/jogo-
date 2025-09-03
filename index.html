@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Jogo da Forca</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Forca Dev</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <div class="container">
-    <h1>🎮 Bem-vindo ao Jogo da Forca!</h1>
-    <p>Escolha uma dificuldade e comece a jogar!</p>
-    <button onclick="window.location.href='jogo.html'">Iniciar Jogo</button>
+<body class="home">
+  <h1>🔧 Forca Dev</h1>
+  <p>Escolha o nível de dificuldade:</p>
+  <div class="levels">
+    <button onclick="startGame('facil')">Fácil</button>
+    <button onclick="startGame('medio')">Médio</button>
+    <button onclick="startGame('dificil')">Difícil</button>
   </div>
+  <script>
+    function startGame(nivel) {
+      localStorage.setItem('nivel', nivel);
+      window.location.href = 'game.html';
+    }
+  </script>
 </body>
 </html>
-
-
 

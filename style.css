@@ -1,36 +1,38 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f0f0f0;
+  font-family: 'Roboto', sans-serif;
   text-align: center;
-  margin-top: 50px;
-}
-
-.container, .game-container {
-  background-color: white;
-  padding: 40px;
-  border-radius: 10px;
-  display: inline-block;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background: linear-gradient(to right, #3A0CA3, #7209B7);
+  color: white;
+  padding: 20px;
 }
 
 button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #0078D7;
-  color: white;
+  background-color: #4361EE;
   border: none;
-  border-radius: 6px;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  border-radius: 8px;
+  transition: 0.3s;
 }
 
 button:hover {
-  background-color: #005fa3;
+  background-color: #4CC9F0;
 }
 
-input {
-  padding: 10px;
-  font-size: 16px;
-  width: 50px;
-  text-align: center;
+#letras button {
+  margin: 3px;
+  width: 40px;
+}
+
+#palavra {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+#mensagem {
+  font-size: 20px;
+  margin-top: 10px;
 }
