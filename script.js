@@ -1,7 +1,7 @@
 const palavras = {
-  facil: ['app', 'bug', 'html', 'css'],
-  medio: ['android', 'backend', 'firebase'],
-  dificil: ['asynchronous', 'dependency', 'injection']
+  facil: ['app', 'bug', 'html', 'css', 'api'],
+  medio: ['android', 'backend', 'firebase', 'flutter'],
+  dificil: ['asynchronous', 'dependency', 'injection', 'typescript']
 };
 
 let nivel = localStorage.getItem('nivel') || 'facil';
@@ -15,6 +15,7 @@ const letrasDiv = document.getElementById('letras');
 const errosDiv = document.getElementById('erros');
 const pontosDiv = document.getElementById('pontos');
 const mensagemDiv = document.getElementById('mensagem');
+const selosDiv = document.getElementById('selos');
 
 function mostrarPalavra() {
   palavraDiv.innerHTML = palavra.split('').map(l => acertos.includes(l) ? l : '_').join(' ');
@@ -33,10 +34,15 @@ function criarTeclado() {
 function verificarLetra(letra, btn) {
   btn.disabled = true;
   if (palavra.includes(letra)) {
-    acertos.push(letra);
+    if (!acertos.includes(letra)) {
+      acertos.push(letra);
+      pontos += 2;
+    }
   } else {
-    erros.push(letra);
-    pontos -= 5;
+    if (!erros.includes(letra)) {
+      erros.push(letra);
+      pontos -= 5;
+    }
   }
   atualizar();
 }
@@ -50,9 +56,17 @@ function atualizar() {
     mensagemDiv.textContent = '💥 Game Over!';
     desativarTeclado();
   } else if (palavra.split('').every(l => acertos.includes(l))) {
-    mensagemDiv.textContent = '🎉 Você venceu!';
+    mensagemDiv.innerHTML = '🎉 Você venceu!<br><span class="selo">🏅 Selo conquistado!</span>';
+    adicionarSelo();
     desativarTeclado();
   }
+}
+
+function adicionarSelo() {
+  let selos = localStorage.getItem('selos') || '';
+  selos += '🏅 ';
+  localStorage.setItem('selos', selos);
+  selosDiv.textContent = 'Selos: ' + selos;
 }
 
 function desativarTeclado() {
@@ -65,4 +79,5 @@ function reiniciar() {
 
 mostrarPalavra();
 criarTeclado();
+selosDiv.textContent = 'Selos: ' + (localStorage.getItem('selos') || '');
 
