@@ -1,40 +1,68 @@
-const palavraSecreta = "copo";
-let palavraAtual = ["_", "_", "_", "_"];
-let pontuacao = 0;
+const palavras = {
+  facil: ['app', 'bug', 'html', 'css'],
+  medio: ['android', 'backend', 'firebase'],
+  dificil: ['asynchronous', 'dependency', 'injection']
+};
 
-document.getElementById("palavra").textContent = palavraAtual.join(" ");
+let nivel = localStorage.getItem('nivel') || 'facil';
+let palavra = palavras[nivel][Math.floor(Math.random() * palavras[nivel].length)].toUpperCase();
+let acertos = [];
+let erros = [];
+let pontos = 30;
 
-function verificarLetra() {
-  const letra = document.getElementById("letra").value.toLowerCase();
-  let acertou = false;
+const palavraDiv = document.getElementById('palavra');
+const letrasDiv = document.getElementById('letras');
+const errosDiv = document.getElementById('erros');
+const pontosDiv = document.getElementById('pontos');
+const mensagemDiv = document.getElementById('mensagem');
 
-  for (let i = 0; i < palavraSecreta.length; i++) {
-    if (palavraSecreta[i] === letra && palavraAtual[i] === "_") {
-      palavraAtual[i] = letra;
-      acertou = true;
-    }
+function mostrarPalavra() {
+  palavraDiv.innerHTML = palavra.split('').map(l => acertos.includes(l) ? l : '_').join(' ');
+}
+
+function criarTeclado() {
+  for (let i = 65; i <= 90; i++) {
+    const letra = String.fromCharCode(i);
+    const btn = document.createElement('button');
+    btn.textContent = letra;
+    btn.onclick = () => verificarLetra(letra, btn);
+    letrasDiv.appendChild(btn);
   }
+}
 
-  if (acertou) {
-    document.getElementById("acerto").play();
-    pontuacao += 10;
-    document.getElementById("mensagem").textContent = "Acertou!";
+function verificarLetra(letra, btn) {
+  btn.disabled = true;
+  if (palavra.includes(letra)) {
+    acertos.push(letra);
   } else {
-    document.getElementById("erro").play();
-    pontuacao -= 5;
-    document.getElementById("mensagem").textContent = "Errou!";
+    erros.push(letra);
+    pontos -= 5;
   }
-
-  document.getElementById("palavra").textContent = palavraAtual.join(" ");
-  document.getElementById("pontuacao").textContent = pontuacao;
-  atualizarRanking();
-  document.getElementById("letra").value = "";
+  atualizar();
 }
 
-function atualizarRanking() {
-  const melhor = localStorage.getItem("melhorPontuacao") || 0;
-  if (pontuacao > melhor) {
-    localStorage.setItem("melhorPontuacao", pontuacao);
+function atualizar() {
+  mostrarPalavra();
+  errosDiv.textContent = 'Erros: ' + erros.join(', ');
+  pontosDiv.textContent = 'Pontos: ' + pontos;
+
+  if (pontos <= 0) {
+    mensagemDiv.textContent = '💥 Game Over!';
+    desativarTeclado();
+  } else if (palavra.split('').every(l => acertos.includes(l))) {
+    mensagemDiv.textContent = '🎉 Você venceu!';
+    desativarTeclado();
   }
-  document.getElementById("ranking").textContent = localStorage.getItem("melhorPontuacao");
 }
+
+function desativarTeclado() {
+  document.querySelectorAll('#letras button').forEach(btn => btn.disabled = true);
+}
+
+function reiniciar() {
+  location.href = 'index.html';
+}
+
+mostrarPalavra();
+criarTeclado();
+
