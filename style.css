@@ -1,9 +1,17 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Orbitron', sans-serif;
   text-align: center;
-  background: linear-gradient(to right, #3A0CA3, #7209B7);
+  background: linear-gradient(-45deg, #3A0CA3, #7209B7, #4361EE, #4CC9F0);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
   color: white;
   padding: 20px;
+}
+
+@keyframes gradient {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
 }
 
 h1 {
@@ -12,19 +20,22 @@ h1 {
 }
 
 button {
-  background-color: #4361EE;
-  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
   color: white;
-  padding: 10px 20px;
+  padding: 12px 24px;
   margin: 5px;
   font-size: 16px;
   cursor: pointer;
-  border-radius: 8px;
-  transition: 0.3s;
+  border-radius: 12px;
+  font-weight: bold;
+  transition: transform 0.2s ease;
 }
 
 button:hover {
-  background-color: #4CC9F0;
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 #letras button {
@@ -32,6 +43,12 @@ button:hover {
   width: 40px;
   height: 40px;
   font-size: 18px;
+}
+
+#letras button:disabled {
+  opacity: 0.5;
+  transform: rotateY(180deg);
+  transition: transform 0.4s ease;
 }
 
 #palavra {
@@ -51,8 +68,31 @@ button:hover {
 }
 
 .selo {
-  font-size: 24px;
+  font-size: 28px;
   color: gold;
-  display: block;
-  margin-top: 10px;
+  text-shadow: 0 0 10px gold;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.1);}
+  100% {transform: scale(1);}
+}
+
+@media (max-width: 600px) {
+  #letras button {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  #palavra {
+    font-size: 22px;
+    letter-spacing: 4px;
+  }
 }
