@@ -1,11 +1,26 @@
-const palavras = {
+const palavrasOriginais = {
   facil: ['app', 'bug', 'html', 'css', 'api'],
   medio: ['android', 'backend', 'firebase', 'flutter'],
   dificil: ['asynchronous', 'dependency', 'injection', 'typescript']
 };
 
+// Recupera palavras restantes do localStorage ou inicia com todas
+let palavrasRestantes = JSON.parse(localStorage.getItem('palavrasRestantes')) || JSON.parse(JSON.stringify(palavrasOriginais));
+
 let nivel = localStorage.getItem('nivel') || 'facil';
-let palavra = palavras[nivel][Math.floor(Math.random() * palavras[nivel].length)].toUpperCase();
+
+// Se não houver mais palavras, reinicia a lista
+if (palavrasRestantes[nivel].length === 0) {
+  palavrasRestantes[nivel] = [...palavrasOriginais[nivel]];
+}
+
+let indice = Math.floor(Math.random() * palavrasRestantes[nivel].length);
+let palavra = palavrasRestantes[nivel][indice].toUpperCase();
+
+// Remove a palavra usada
+palavrasRestantes[nivel].splice(indice, 1);
+localStorage.setItem('palavrasRestantes', JSON.stringify(palavrasRestantes));
+
 let acertos = [];
 let erros = [];
 let pontos = 30;
@@ -80,4 +95,3 @@ function reiniciar() {
 mostrarPalavra();
 criarTeclado();
 selosDiv.textContent = 'Selos: ' + (localStorage.getItem('selos') || '');
-
